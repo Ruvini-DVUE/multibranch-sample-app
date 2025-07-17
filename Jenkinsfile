@@ -10,5 +10,15 @@ pipeline {
  				echo "hello"
  			}
  		}
+		stage('cat READ') {
+			when{
+				branch "fix-*"
+			}
+			steps{
+				sh '''
+					cat READ.md
+				'''
+			}
+		}
  	}
  }
